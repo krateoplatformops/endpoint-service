@@ -3,12 +3,20 @@ const Schema = mongoose.Schema
 
 const { dbConstants } = require('../constants')
 
-const hostSchema = new Schema({
-  provider: {
+const endpointSchema = new Schema({
+  secretName: {
     type: String,
     required: true
   },
-  secretName: {
+  icon: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  type: {
     type: String,
     required: true
   },
@@ -16,8 +24,12 @@ const hostSchema = new Schema({
     type: String,
     required: true
   },
-  apiUrl: {
+  target: {
     type: String,
+    required: true
+  },
+  headers: {
+    type: Object,
     required: true
   },
   createdAt: {
@@ -26,4 +38,8 @@ const hostSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model('Host', hostSchema, dbConstants.COLLECTION_HOST)
+module.exports = mongoose.model(
+  'Endpoint',
+  endpointSchema,
+  dbConstants.COLLECTION_ENDPOINT
+)

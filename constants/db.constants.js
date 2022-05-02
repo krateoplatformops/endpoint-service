@@ -1,3 +1,3 @@
 module.exports = {
-  COLLECTION_HOST: 'host'
+  COLLECTION_ENDPOINT: 'endpoint'
 }

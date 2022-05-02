@@ -1,0 +1,6 @@
+registry:
+  images:
+    endpoint: ghcr.io/krateoplatformops/endpoint-service:latest
+
+log:
+  level: "info"

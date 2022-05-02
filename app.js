@@ -17,7 +17,7 @@ app.use(responseTime({ suffix: false, digits: 0 }))
 /* MongoDB */
 mongoose.Promise = global.Promise
 mongoose.connect(envConstants.MONGODB_URI)
-require('./models/host.model')
+require('./models/endpoint.model')
 
 /* Middlewares */
 const callLoggerMiddleware = require('./middlewares/call-logger.middleware')
@@ -31,10 +31,10 @@ app.use(callLoggerMiddleware)
 
 /* Routes */
 const statusRoutes = require('./routes/status.routes')
-const hostRoutes = require('./routes/host.routes')
+const endpointRoutes = require('./routes/endpoint.routes')
 
 app.use('/', statusRoutes)
-app.use('/', hostRoutes)
+app.use('/', endpointRoutes)
 
 app.use(errorLoggerMiddleware)
 

@@ -1,1 +1,1 @@
-# Krateo Deployment Service
+# Krateo Endpoint Service

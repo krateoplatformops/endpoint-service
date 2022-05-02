@@ -2,21 +2,24 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 
-const Host = mongoose.model('Host')
+const Endpoint = mongoose.model('Endpoint')
 const timeHelpers = require('../helpers/time.helpers')
-// const stringHelpers = require('../helpers/string.helpers')
+const uriHelpers = require('../helpers/uri.helpers')
 
 router.post('/', async (req, res, next) => {
   try {
+    const parsed = uriHelpers.parse(req.body.target)
+
     const payload = {
       ...req.body,
-      secretName: req.body.provider + '-' + req.body.domain,
-      createdAt: timeHelpers.currentTime()
+      secretName: `endpoint-${req.body.name}`,
+      createdAt: timeHelpers.currentTime(),
+      domain: parsed.domain
     }
 
-    Host.create(payload)
-      .then((host) => {
-        res.status(200).json(host)
+    Endpoint.create(payload)
+      .then((endpoint) => {
+        res.status(200).json(endpoint)
       })
       .catch((error) => {
         next(error)

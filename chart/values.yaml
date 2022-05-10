@@ -3,7 +3,7 @@ registry:
     endpoint: ghcr.io/krateoplatformops/endpoint-service:latest
 
 log:
-  level: "info"
+  level: "debug"
 
 endpoint:
   host: "endpoint.krateo.site"

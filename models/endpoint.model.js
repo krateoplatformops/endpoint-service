@@ -4,6 +4,10 @@ const Schema = mongoose.Schema
 const { dbConstants } = require('../constants')
 
 const endpointSchema = new Schema({
+  namespace: {
+    type: String,
+    required: true
+  },
   secretName: {
     type: String,
     required: true
@@ -26,10 +30,6 @@ const endpointSchema = new Schema({
   },
   target: {
     type: String,
-    required: true
-  },
-  headers: {
-    type: Object,
     required: true
   },
   createdAt: {

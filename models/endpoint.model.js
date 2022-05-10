@@ -32,6 +32,10 @@ const endpointSchema = new Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
   createdAt: {
     type: Number,
     required: true

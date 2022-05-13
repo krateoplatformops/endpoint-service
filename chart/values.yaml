@@ -65,6 +65,8 @@ podEnvFrom:
 podEnv:
   - name: LOG_LEVEL
     value: info
+  - name: NAMESPACE
+    value: krateo-dev
   - name: "MONGODB_URI"
     valueFrom:
       secretKeyRef:

@@ -39,7 +39,7 @@ router.post('/', async (req, res, next) => {
       uriHelpers.concatUrl([
         envConstants.BRIDGE_URI,
         'secrets',
-        'krateo-dev',
+        envConstants.NAMESPACE,
         secretName
       ]),
       { data: secret }

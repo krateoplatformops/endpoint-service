@@ -11,7 +11,7 @@ const uriHelpers = require('../helpers/uri.helpers')
 router.post('/', async (req, res, next) => {
   try {
     const parsed = uriHelpers.parse(req.body.target)
-    const secretName = `${parsed.domain}-secret`
+    const secretName = `${name}-secret`
 
     Endpoint.countDocuments({ secretName }, (err, count) => {
       if (count > 0) {

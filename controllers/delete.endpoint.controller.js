@@ -10,10 +10,7 @@ router.delete('/:id', async (req, res, next) => {
   try {
     Endpoint.findByIdAndDelete(req.params.id)
       .then(async (doc, err) => {
-        console.log(doc)
-        console.log(err)
         if (err) {
-          console.log('err è buono')
           res.status(404).json({
             message: `Endpoint with id ${req.params.id} not found now`
           })

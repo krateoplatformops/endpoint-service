@@ -19,20 +19,21 @@ router.post('/', async (req, res, next) => {
       }
     })
 
-    const dbValues = ['name', 'target', 'type', 'icon', 'category']
-
-    const secret = Object.keys(req.body)
-      .filter((key) => !dbValues.includes(key))
-      .map((key) => ({ key, val: req.body[key] }))
+    const secret = Object.keys(req.body.secret).map((key) => ({
+      key,
+      val: req.body.secret[key]
+    }))
 
     const payload = {
-      secretName,
       createdAt: timeHelpers.currentTime(),
-      domain: parsed.domain,
       namespace: envConstants.NAMESPACE,
-      ...Object.keys(req.body)
-        .filter((key) => dbValues.includes(key))
-        .reduce((acc, key) => ({ ...acc, [key]: req.body[key] }), {})
+      name: req.body.name,
+      icon: req.body.icon,
+      type: req.body.type,
+      target: req.body.target,
+      category: req.body.category,
+      secretName,
+      domain: parsed.domain
     }
 
     const saved = await axios.post(

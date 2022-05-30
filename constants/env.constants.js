@@ -3,5 +3,6 @@ module.exports = {
   MONGODB_URI: process.env.MONGODB_URI,
   LOG_LEVEL: process.env.LOG_LEVEL || 'info',
   BRIDGE_URI: process.env.BRIDGE_URI,
-  NAMESPACE: process.env.NAMESPACE
+  NAMESPACE: process.env.NAMESPACE,
+  ARGOCD_URI: process.env.ARGOCD_URI
 }

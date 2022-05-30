@@ -29,6 +29,10 @@ app.use(callLoggerMiddleware)
 // const swaggerDocument = require('./openapi')
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
+/* Init */
+const initArgocd = require('./init/argocd.init')
+initArgocd()
+
 /* Routes */
 const statusRoutes = require('./routes/status.routes')
 const endpointRoutes = require('./routes/endpoint.routes')

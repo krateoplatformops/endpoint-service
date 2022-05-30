@@ -39,6 +39,11 @@ const endpointSchema = new Schema({
   createdAt: {
     type: Number,
     required: true
+  },
+  canBeDeleted: {
+    type: Boolean,
+    required: true,
+    default: true
   }
 })
 

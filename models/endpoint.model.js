@@ -47,7 +47,7 @@ const endpointSchema = new Schema({
   }
 })
 
-templateSchema.index({ name: 1 }, { name: 'endpointIndex' })
+endpointSchema.index({ name: 1 }, { name: 'endpointIndex' })
 
 module.exports = mongoose.model(
   'Endpoint',

@@ -6,15 +6,15 @@ const timeHelpers = require('../helpers/time.helpers')
 const uriHelpers = require('../helpers/uri.helpers')
 
 const initArgocd = async () => {
+  const argocdSvc = `http://argocd-server.${envConstants.NAMESPACE}.svc/api/v1/applications`
   Endpoint.find({
     name: 'argocd',
-    target: envConstants.ARGOCD_URI
+    target: argocdSvc
   })
     .then((endpoints) => {
       if (endpoints.length === 0) {
         logger.info('Default argocd endpoint not found, creating...')
 
-        const argocdSvc = `http://${envConstants.NAMESPACE}/api/v1/applications`
         const parsed = uriHelpers.parse(argocdSvc)
 
         const argocdEndpoint = new Endpoint({
